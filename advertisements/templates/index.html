@@ -100,7 +100,7 @@
       <div class="row g-0">
         <div class="col-md-4">
           <a href="advertisement.html" class="nav-link">
-            <img src="{% if adv.image %} {{adv.image.url }} {% endif %}" class="img-fluid rounded-start" alt="Card title">
+            <img src="{% if adv.image %} {{ adv.image.url }} {% else %} {% static 'img/adv.png' %} {% endif %}" class="img-fluid rounded-start" alt="Card title">
           </a>
         </div>
         <div class="col-md-8">
@@ -114,15 +114,13 @@
               </p>
               <span>Автор: {{ adv.user }}</span>
               <p class="card-text"><small class="text-muted">Размещено: {{ adv.created_at }}</small></p>
-              <span> Цена: {{ adv.price }}</span>
+              <span>Цена: {{ adv.price }}</span>
             </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  {%endfor%}
-</div>
+    {% endfor %}
 <footer style="padding: 100px;" class="bg-primary">
   <nav class="navbar navbar-expand-sm navbar-dark">
     <a class="navbar-brand" href="#">Добавьте</a>
